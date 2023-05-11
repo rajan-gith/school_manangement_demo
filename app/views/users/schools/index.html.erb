@@ -1,0 +1,5 @@
+<ol>
+  <% @schools.each do |school| %>
+    <li><%= school.name %></li><a href="<%= list_batches_school_path(id: school.id) %>">View batches</a>
+  <% end %>
+</ol>
