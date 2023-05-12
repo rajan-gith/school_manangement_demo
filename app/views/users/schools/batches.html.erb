@@ -1,5 +1,6 @@
 <ol>
   <% @batches.each do |batch| %>
     <li><%= batch.name %></li>
+    <a href="<%= batch_path(id: batch.id) %>">show details</a>
   <% end %>
 </ol>

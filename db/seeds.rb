@@ -9,3 +9,9 @@
 ["First School", "Second School", "Third School"].each do |school|
   School.find_or_create_by(name: school)
 end
+
+Admin.find_or_initialize_by(email: "admin@gmail.com") do |admin|
+  admin.password = 12345678 
+  admin.password_confirmation = 12345678
+  admin.save 
+end
