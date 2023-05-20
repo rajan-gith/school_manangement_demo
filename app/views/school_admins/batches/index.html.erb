@@ -1,0 +1,19 @@
+<div class="">
+  <%= current_school_admin.email %>
+</div>
+
+<% if @school %>
+  welcome to <%= @school.name %>
+  <div class="">
+    <% @batches.each do |batch| %>
+      <li>
+        <%= batch.name %>
+        <a href="<%= school_admins_batch_url(batch.id) %>"> view details</a>
+      </li>
+    <% end %>
+  </div>
+<% else %>
+  <div class="">
+    please Join a school
+  </div>
+<% end %>

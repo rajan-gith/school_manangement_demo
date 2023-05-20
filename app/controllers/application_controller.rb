@@ -1,12 +1,16 @@
 class ApplicationController < ActionController::Base
-  # before_action :redirect_users
-  before_action :authenticate_student!
 
   def after_sign_in_path_for(resource)
+    respective_paths
+  end
+  
+  def respective_paths
     if current_admin
       rails_admin_path
+    elsif current_school_admin
+      school_admins_batches_url
     else
-      root_path
+      schools_path
     end
   end
 end

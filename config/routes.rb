@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  root 'students/schools#index'
+  root 'homes#index'
   devise_for :students, controllers: {
     sessions: 'students/sessions',
     registrations: 'students/registrations'
@@ -23,6 +23,13 @@ Rails.application.routes.draw do
     resources :batches, only: [:show] do
       member do
         put "apply"
+      end
+    end
+  end
+  namespace :school_admins do
+    resources :batches, only: [:index, :show] do
+      member do
+        put "approve/:student_batch_id", to: "batches#approve", as: "approve"
       end
     end
   end
