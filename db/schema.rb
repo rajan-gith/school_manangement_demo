@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_11_180118) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_20_104047) do
   create_table "batches", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -25,8 +25,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_11_180118) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "student_batches", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "student_id"
+    t.integer "batch_id"
+    t.integer "status", default: 0
+    t.float "progress"
+    t.index ["batch_id"], name: "index_student_batches_on_batch_id"
+    t.index ["student_id"], name: "index_student_batches_on_student_id"
+  end
+
   create_table "users", force: :cascade do |t|
-    t.integer "role"
+    t.string "role"
     t.string "username"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -40,4 +51,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_11_180118) do
   end
 
   add_foreign_key "batches", "schools"
+  add_foreign_key "student_batches", "batches"
+  add_foreign_key "student_batches", "users", column: "student_id"
 end

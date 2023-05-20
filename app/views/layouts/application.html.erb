@@ -19,9 +19,9 @@
         </a>
 
         <ul class="nav nav-pills">
-          <% if current_user %>
+          <% if current_student %>
               <li class="nav-item active">
-                <%= link_to 'Log Out', destroy_user_session_path, class: 'me-3 py-2 text-dark text-decoration-none', data: { "turbo-method": :delete } %>
+                <%= link_to 'Log Out', destroy_student_session_path, class: 'me-3 py-2 text-dark text-decoration-none', data: { "turbo-method": :delete } %>
               </li>
           <% elsif current_admin %>
               <li class="nav-item active">
@@ -33,16 +33,16 @@
               </li>
           <% else %>
             <li class="nav-item">
-              <a href="<%= new_user_registration_path %>" class="me-3 py-2 text-dark text-decoration-none " aria-current="page">Student Sign up</a>
+              <a href="<%= new_student_registration_path %>" class="me-3 py-2 text-dark text-decoration-none " aria-current="page">Student Sign up</a>
             </li>
             <li class="nav-item">
-              <a href="<%= new_user_session_path %>" class="me-3 py-2 text-dark text-decoration-none">Log in</a>
+              <a href="<%= new_student_session_path %>" class="me-3 py-2 text-dark text-decoration-none">Log in</a>
             </li>
             <li class="nav-item">
               <a href="<%= new_admin_session_path %>" class="me-3 py-2 text-dark text-decoration-none">Admin Corner</a>
             </li>
             <li class="nav-item">
-              <a href="<%=  %>" class="me-3 py-2 text-dark text-decoration-none">School Admin Corner</a>
+              <a href="<%= new_school_admin_session_path %>" class="me-3 py-2 text-dark text-decoration-none">School Admin Corner</a>
             </li>
           <% end %>
         </ul>

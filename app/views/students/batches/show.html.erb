@@ -1,0 +1,30 @@
+<div>name: <%= @batch.name %> 
+  <% if !@student_batch %>
+    <%= link_to 'Apply here', apply_batch_path(id: @batch.id), class: 'me-3 py-2 text-decoration-none', data: { "turbo-method": :put } %>
+  <% else %>
+  <br>
+  <span>Status: </span>
+    <% if @student_batch.pending?%>
+      <span>Already applied(Pending)</span>
+    <% elsif @student_batch.approved?%>
+      <span>Already Enrolled(Approved)</span>
+    <% else %>
+      <span>Rejected</span>
+    <% end %>
+  <% end %>
+  <% if @student_batch.approved? %>
+    <br>
+    <span>Enrolled Students::</span>
+    <br>
+    <ol>
+      <% @fellow_student_batches.each do |fellow_student_batch| %>
+        <% if fellow_student_batch.student_id == current_student.id %>
+          <li>Yourself</li>
+        <% else %>
+          <li><%= fellow_student_batch.student.email %></li>
+          <li><%= fellow_student_batch.student.email %>'s progress <%= fellow_student_batch.progress %></li>
+        <% end %>
+      <% end %>
+    </ol>
+  <% end %>
+</div>

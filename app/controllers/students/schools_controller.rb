@@ -1,5 +1,5 @@
-class Users::SchoolsController < ApplicationController
-  before_action :authenticate_user!
+class Students::SchoolsController < ApplicationController
+  before_action :authenticate_student!
   def index
     @schools = School.all
   end
