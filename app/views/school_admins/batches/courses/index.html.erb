@@ -1,0 +1,5 @@
+<a href="<%= new_school_admins_batches_course_url %>">Create new course</a>
+<span>available courses are</span>
+<% @courses.each do |course| %>
+  <li><%= course.name %></li>
+<% end %>

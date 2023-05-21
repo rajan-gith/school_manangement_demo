@@ -1,5 +1,6 @@
 name: <%= @batch.name %>
 
+<br>
 enrolled students: 
 <% @student_batches.each do |batch| %>
 <li>
@@ -10,3 +11,5 @@ enrolled students:
   <% end %>
 </li>
 <% end %>
+<br>
+view available courses: <a href="<%= school_admins_batches_courses_url(@batch.id) %>">click here</a> 

@@ -32,7 +32,7 @@ Rails.application.routes.draw do
         put "approve/:student_batch_id", to: "batches#approve", as: "approve"
         put "reject/:student_batch_id", to: "batches#reject", as: "reject"
         
-        scope module: :batches do
+        namespace :batches do
           resources :courses, param: :course_id
         end
       end
