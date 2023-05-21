@@ -27,10 +27,14 @@ Rails.application.routes.draw do
     end
   end
   namespace :school_admins do
-    resources :batches, only: [:index, :show, :create, :new] do
+    resources :batches, only: [:index, :show, :create, :new, :edit, :update] do
       member do
         put "approve/:student_batch_id", to: "batches#approve", as: "approve"
         put "reject/:student_batch_id", to: "batches#reject", as: "reject"
+        
+        scope module: :batches do
+          resources :courses, param: :course_id
+        end
       end
     end
   end

@@ -33,6 +33,18 @@ class SchoolAdmins::BatchesController < SchoolAdmins::BaseController
   def new
     @batch = @school.batches.new()
   end
+  
+  def edit
+  end
+  
+  def update
+    if @batch.update(batch_params)
+      flash[:success] = "saved"
+    else
+      flash[:error] = "Could not save"
+    end
+    redirect_to school_admins_batches_url
+  end
 
   def create
     @batch = @school.batches.new(batch_params)
