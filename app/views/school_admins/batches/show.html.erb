@@ -11,5 +11,6 @@ enrolled students:
   <% end %>
 </li>
 <% end %>
+<%= will_paginate @student_batches %>
 <br>
 view available courses: <a href="<%= school_admins_batches_courses_url(@batch.id) %>">click here</a> 

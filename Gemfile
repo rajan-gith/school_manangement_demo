@@ -70,3 +70,4 @@ end
 gem "devise"
 gem 'rails_admin'
 gem "sassc-rails"
+gem 'will_paginate', '~> 3.3'

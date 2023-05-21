@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  PER_PAGE=5
 
   def after_sign_in_path_for(resource)
     respective_paths

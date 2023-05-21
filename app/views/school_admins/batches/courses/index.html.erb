@@ -3,3 +3,4 @@
 <% @courses.each do |course| %>
   <li><%= course.name %></li>
 <% end %>
+<%= will_paginate @courses %>

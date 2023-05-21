@@ -4,7 +4,7 @@ class SchoolAdmins::Batches::CoursesController < SchoolAdmins::BaseController
   before_action :set_batch
   before_action :set_course, only: [:show, :edit, :update]
   def index
-    @courses = @batch.courses
+    @courses = @batch.courses.paginate(page: (params[:page]||1), per_page: PER_PAGE)
   end
   
   def show

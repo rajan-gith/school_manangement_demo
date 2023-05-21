@@ -3,11 +3,11 @@ class SchoolAdmins::BatchesController < SchoolAdmins::BaseController
   before_action :set_school
   before_action :set_batch, except: [:index, :new, :create]
   def index
-    @batches = @school&.batches
+    @batches = Batch.all.where(school_id: @school.id).paginate(page: (params[:page]||1), per_page: PER_PAGE)
   end
   
   def show
-    @student_batches = @batch.student_batches
+    @student_batches = @batch.student_batches.paginate(page: (params[:page]||1), per_page: PER_PAGE)
   end
   
   def approve
