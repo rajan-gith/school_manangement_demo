@@ -6,6 +6,7 @@ enrolled students:
   <%= batch.student.email %>: <%= batch.status %> 
   <% if batch.pending? %>
     <%= link_to 'click to approve', approve_school_admins_batch_url(id: @batch.id, student_batch_id: batch.id), class: '', data: { "turbo-method": :put } %>
+    <%= link_to 'click to reject', reject_school_admins_batch_url(id: @batch.id, student_batch_id: batch.id), class: '', data: { "turbo-method": :put } %>
   <% end %>
 </li>
 <% end %>

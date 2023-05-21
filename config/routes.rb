@@ -30,6 +30,7 @@ Rails.application.routes.draw do
     resources :batches, only: [:index, :show] do
       member do
         put "approve/:student_batch_id", to: "batches#approve", as: "approve"
+        put "reject/:student_batch_id", to: "batches#reject", as: "reject"
       end
     end
   end
