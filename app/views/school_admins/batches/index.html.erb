@@ -1,6 +1,7 @@
 <div class="">
   <%= current_school_admin.email %>
 </div>
+<a href="<%= new_school_admins_batch_url() %>">Create new batch</a>
 
 <% if @school %>
   welcome to <%= @school.name %>
